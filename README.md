@@ -1,11 +1,10 @@
 # CERC Blog — Next.js Fullstack Project
 
-Blog fullstack yang dibangun sebagai **Final Project** kurikulum Software Division CERC Universitas Diponegoro.
-Setiap fitur mencerminkan konsep dari masing-masing bab kurikulum.
+Blog fullstack yang dibangun sebagai **Penugasan** Course Next.js & Fullstack Concept Software Division CERC 
 
 ---
 
-## 🗂️ Peta Konsep per Bab
+## Peta Konsep per Bab
 
 | Bab | Topik | File Utama |
 |-----|-------|-----------|
@@ -61,8 +60,8 @@ Buka [http://localhost:3000](http://localhost:3000) di browser.
 ### Akun Default (setelah seed)
 | Email | Password | Role |
 |-------|----------|------|
-| raya@cerc.undip.ac.id  | password123 | Admin |
-| yosua@cerc.undip.ac.id | password123 | User  |
+| azzamsyaifulislam@students.undip.ac.id  | password123 | Admin |
+| farelrazzan@students.undip.ac.id | password123 | User  |
 
 ---
 
@@ -144,19 +143,3 @@ cerc-blog/
 
 ---
 
-## 📦 Deploy ke Vercel
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel
-
-# Set environment variables di Vercel Dashboard:
-# DATABASE_URL, AUTH_SECRET, AUTH_URL
-```
-
----
-
-*Dibuat untuk kurikulum Software Division CERC Undip — Next.js & Fullstack Development*
