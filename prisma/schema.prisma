@@ -1,0 +1,68 @@
+// ─────────────────────────────────────────────────────────────────
+// prisma/schema.prisma
+// BAB 4 — Database & ORM dengan Prisma
+// Jalankan: npx prisma db push  → untuk sync ke database
+//           npx prisma studio   → untuk GUI database
+// ─────────────────────────────────────────────────────────────────
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Nilai DATABASE_URL diambil dari .env.local (BAB 5)
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String   // di-hash dengan bcryptjs (BAB 5)
+  image     String?
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relasi: satu user bisa punya banyak post
+  posts     Post[]
+
+  @@map("users")
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique  // BAB 2 — Dynamic Route [slug]
+  excerpt   String
+  content   String
+  published Boolean  @default(false)
+  views     Int      @default(0)
+  likes     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relasi: setiap post dimiliki oleh satu user
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+
+  // Relasi: post bisa punya banyak tag
+  tags      Tag[]
+
+  @@map("posts")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Tag {
+  id    String @id @default(cuid())
+  name  String @unique
+  slug  String @unique
+  posts Post[]
+
+  @@map("tags")
+}
