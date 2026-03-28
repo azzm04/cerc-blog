@@ -16,7 +16,7 @@ Blog fullstack yang dibangun sebagai **Penugasan** Course Next.js & Fullstack Co
 
 ---
 
-## 🚀 Cara Menjalankan Project
+## Cara Menjalankan di lokal
 
 ### Prasyarat
 - Node.js 18.18.0 ke atas
@@ -31,6 +31,7 @@ npm install
 ```bash
 # Salin file contoh
 cp .env.example .env.local
+cp .env.example .env
 
 # Isi nilai berikut di .env.local:
 # DATABASE_URL  → connection string dari Neon
